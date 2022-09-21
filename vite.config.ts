@@ -4,8 +4,9 @@ import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
-import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Unocss from 'unocss/vite'
 
 export default defineConfig({
@@ -29,8 +30,16 @@ export default defineConfig({
         'vue/macros',
         'vue-router',
         '@vueuse/core',
+        {
+          'naive-ui': [
+            'useDialog',
+            'useMessage',
+            'useNotification',
+            'useLoadingBar',
+          ],
+        },
       ],
-      dts: true,
+      dts: 'src/auto-imports.d.ts',
       dirs: [
         './src/composables',
       ],
@@ -39,7 +48,8 @@ export default defineConfig({
 
     // https://github.com/antfu/vite-plugin-components
     Components({
-      dts: true,
+      resolvers: [NaiveUiResolver()],
+      dts: 'src/components.d.ts',
     }),
 
     // https://github.com/antfu/unocss
