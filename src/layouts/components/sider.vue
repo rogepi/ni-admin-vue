@@ -1,14 +1,44 @@
 <script setup lang="ts">
-import { options } from './options'
+import type { MenuOption } from 'naive-ui'
 import { useGlobalStore } from '~/store'
+import { renderIcon, renderRouterLink } from '~/utils'
+
+export interface IMenuItem {
+  title: string
+  path: string
+  iconClass: string
+  chirdren?: IMenuItem[]
+}
+
+const menuList: IMenuItem[] = [
+  {
+    title: '首页',
+    path: 'index',
+    iconClass: 'i-mdi-home',
+  },
+  {
+    title: '关于',
+    path: 'about',
+    iconClass: 'i-mdi-account',
+  },
+]
 
 const route = useRoute()
-const activeMenu = computed(() => {
+const active = computed(() => {
   return route.name as string
 })
 
 const global = useGlobalStore()
 const { collapsed } = storeToRefs(global)
+
+const options: MenuOption[] = menuList.map((item) => {
+  return {
+    label: renderRouterLink(item.title, item.path),
+    key: item.path,
+    icon: renderIcon(item.iconClass),
+    chirdren: item?.chirdren,
+  }
+})
 </script>
 
 <template>
@@ -18,7 +48,7 @@ const { collapsed } = storeToRefs(global)
   >
     <n-menu
       :collapsed="collapsed" :collapsed-width="64" :collapsed-icon-size="22" :options="options"
-      :value="activeMenu"
+      :value="active"
     />
   </n-layout-sider>
 </template>
