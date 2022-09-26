@@ -39,6 +39,12 @@ const options: MenuOption[] = menuList.map((item) => {
     chirdren: item?.chirdren,
   }
 })
+
+const isLargeScreen = useMediaQuery('(min-width: 1024px)')
+
+watch(() => isLargeScreen.value, () => {
+  isLargeScreen.value === true ? collapsed.value = false : collapsed.value = true
+})
 </script>
 
 <template>

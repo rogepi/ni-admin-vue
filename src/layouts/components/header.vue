@@ -6,9 +6,15 @@ const toHome = () => {
 </script>
 
 <template>
-  <n-layout-header h-16 p-3 px-6 bordered>
+  <n-layout-header h-16 p-3 px-6 center justify-between bordered>
     <div flex items-end cursor-pointer @click="toHome">
       <Logo />
+    </div>
+    <div center gap-3>
+      <ThemeSwitch />
+      <n-avatar round>
+        {{ 'user' }}
+      </n-avatar>
     </div>
   </n-layout-header>
 </template>
