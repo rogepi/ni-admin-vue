@@ -13,14 +13,10 @@ watch(() => isDark, () => {
 <template>
   <n-popover trigger="hover">
     <template #trigger>
-      <n-switch v-model:value="isDark" size="medium">
-        <template #icon>
-          <div class="i-carbon-moon" />
-        </template>
-        <template #unchecked-icon>
-          <div class="i-carbon-sun " />
-        </template>
-      </n-switch>
+      <div text="5" cursor-pointer @click="isDark = !isDark">
+        <div v-if="isDark" class="i-carbon-sun" />
+        <div v-else class="i-carbon-moon" />
+      </div>
     </template>
     <span>{{ isDark ? '切换亮色模式' : '切换暗色模式' }}</span>
   </n-popover>

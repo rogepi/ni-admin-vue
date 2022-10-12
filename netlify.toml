@@ -10,3 +10,8 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[redirects]]
+  from = "/api"
+  to = "http://106.12.134.46:28019/api/v1"
+  status = 200

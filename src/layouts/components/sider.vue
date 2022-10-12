@@ -17,6 +17,11 @@ const menuList: IMenuItem[] = [
     iconClass: 'i-mdi-home',
   },
   {
+    title: '表格',
+    path: 'table',
+    iconClass: 'i-mdi-table',
+  },
+  {
     title: '关于',
     path: 'about',
     iconClass: 'i-mdi-account',

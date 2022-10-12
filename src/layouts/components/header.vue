@@ -10,7 +10,7 @@ const toHome = () => {
     <div flex items-end cursor-pointer @click="toHome">
       <Logo />
     </div>
-    <div center gap-3>
+    <div center gap-5>
       <ThemeSwitch />
       <n-avatar round>
         {{ 'user' }}

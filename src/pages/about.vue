@@ -6,5 +6,5 @@
 name: about
 meta:
   title: 关于
-  </route>
+</route>
 
