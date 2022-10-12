@@ -7,11 +7,11 @@
   command = "npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/api/*"
+  to = "http://106.12.134.46:28019/api/v1/:splat"
   status = 200
 
 [[redirects]]
-  from = "/api"
-  to = "http://106.12.134.46:28019/api/v1"
+  from = "/*"
+  to = "/index.html"
   status = 200
